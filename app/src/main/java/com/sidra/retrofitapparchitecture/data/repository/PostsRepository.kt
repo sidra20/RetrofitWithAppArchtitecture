@@ -11,7 +11,7 @@ class PostsRepository @Inject constructor(private val postsApiService: PostsApiS
     val postsLv : LiveData<Posts>
     get() = postsMlv
 
-    val msg = MutableLiveData<String>()
+
 
 
     suspend fun getPosts(){
@@ -19,9 +19,10 @@ class PostsRepository @Inject constructor(private val postsApiService: PostsApiS
         if(result.body()!=null)
         {
             postsMlv.postValue(result.body())
+
         }
         else{
-            msg.value="Couldn't retrieve data!"
+
         }
     }
 }

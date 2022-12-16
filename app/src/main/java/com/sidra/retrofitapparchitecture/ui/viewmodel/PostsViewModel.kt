@@ -2,6 +2,7 @@ package com.sidra.retrofitapparchitecture.ui.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.viewModelFactory
@@ -18,18 +19,24 @@ class PostsViewModel @Inject constructor(private val repository: PostsRepository
     val postsLiveData : LiveData<Posts>
     get() = repository.postsLv
 
-    val msg: LiveData<String>
-    get() = repository.msg
+    private val msg = MutableLiveData<String>()
+    val msgLv : LiveData<String>
+    get() = msg
 
     init {
         try {
             viewModelScope.launch (Dispatchers.IO){
                 repository.getPosts()
+
             }
+            msg.value="Data retieved successfully!"
+
         }
         catch (e:Exception)
         {
             Log.d("main",""+e.message)
+            msg.value="Couldn't retrieve data!"
+
         }
 
     }

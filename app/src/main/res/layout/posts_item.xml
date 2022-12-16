@@ -38,7 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/postId"
-                android:text="@{dataclass.id}"
+                android:text="@{Integer.toString(dataclass.id)}"
                 android:textSize="14sp"
                 android:fontFamily="sans-serif-condensed"/>
             <TextView

@@ -54,7 +54,7 @@ class PostsFrgament : Fragment() {
                     Log.d("main",it.toString())
                 })
 
-                viewModel.msg.observe(requireActivity(), Observer {
+                viewModel.msgLv.observe(requireActivity(), Observer {
                     it?.let {
                         Snackbar.make(binding.root,it,Snackbar.LENGTH_SHORT).show()
 

@@ -12,7 +12,7 @@ import javax.inject.Inject
 
 class PostsAdapter @Inject constructor(private val context: Context) : RecyclerView.Adapter<PostsAdapter.MyViewHolder>() {
 
-    private val postsList = ArrayList<PostsItem>()
+     var postsList = ArrayList<PostsItem>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val inflater = LayoutInflater.from(context)
@@ -34,6 +34,7 @@ class PostsAdapter @Inject constructor(private val context: Context) : RecyclerV
 
         postsList.clear()
         postsList.addAll(newList)
+        notifyDataSetChanged()
 
     }
 
