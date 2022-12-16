@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    tools:viewBindingIgnore="true"
+    app:startDestination="@id/postsFrgament">
+
+    <fragment
+        android:id="@+id/postsFrgament"
+        android:name="com.sidra.retrofitapparchitecture.ui.PostsFrgament"
+        android:label="Posts"
+        tools:layout="@layout/fragment_posts_frgament">
+        <action
+            android:id="@+id/action_postsFrgament_to_postsDetail"
+            app:destination="@id/postsDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/postsDetail"
+        android:name="com.sidra.retrofitapparchitecture.ui.PostsDetail"
+        android:label="PostItem"
+        tools:layout="@layout/fragment_posts_detail">
+        <action
+            android:id="@+id/action_postsDetail_to_postsFrgament"
+            app:destination="@id/postsFrgament" />
+    </fragment>
+</navigation>
